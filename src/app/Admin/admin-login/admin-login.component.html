@@ -1,0 +1,109 @@
+
+<div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+  <div class="filter"></div>
+ 
+      <div class="content-center">
+        <div class="container">
+            <div class="title-brand">
+                <div class="angular-logo">
+                    <img src="assets/img/angular2-logo.png" alt="">
+                </div>
+                <h1 class="presentation-title">codeFix</h1>
+                <div class="fog-low">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+                <div class="fog-low right">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+            </div>
+  
+            <h2 class="presentation-subtitle text-center">Run with YOU</h2>
+            <h2 class="presentation-subtitle text-center">Admin</h2>
+        </div>
+    </div>
+    
+    <h6 class=" category-absolute ml-auto mr-auto">Designed and coded by</h6>
+    <h6 class="category category-absolute">Designed and coded by 
+  
+      
+    </h6>
+   
+  
+</div>
+
+<div class="main">
+        
+    <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
+                  <div class="card card-register">
+                      <h3 class="title">Welcome</h3>
+                      <div class="social-line text-center">
+                          <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                              <i class="fa fa-facebook-square"></i>
+                          </a>
+                          <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                              <i class="fa fa-google-plus"></i>
+                          </a>
+                          <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                              <i class="fa fa-twitter"></i>
+                          </a>
+                      </div>
+                      <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+                          <label>Email</label>
+                          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="nc-icon nc-email-85"></i>
+                              </span>
+                            </div>
+
+                              <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" 
+                               [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }"  name="email" #email="ngModel" [(ngModel)]="model.email"
+                               [pattern]="emailRegex" required>
+                              
+                                
+
+                          </div>
+                          
+                          <div *ngIf="signInForm.submitted && email.errors?.pattern">
+                             <label class="validation-message" style="color: black">Invalid email address.</label>
+                           </div>
+                           
+
+                          <label>Password</label>
+                          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="nc-icon nc-key-25"></i>
+                              </span>
+                            </div>
+                              <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" 
+                              name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+                              [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+                              
+                          </div>
+
+                          <div *ngIf="signInForm.submitted && password.errors?.minlength">
+                              <label class="validation-message" style="color: black">Minimum 4 characters.</label>
+                            </div>
+                          <input  class="btn btn-danger btn-block btn-round" type="submit" value="Sign In">
+                      
+                          <div class="alert" *ngIf="serverErrorMessages" style="color: black">
+                              {{serverErrorMessages}}
+                            </div>
+                        </form>
+                      
+                      <div class="forgot">
+                          <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                      </div>
+                  </div>
+                  <div class="col text-center" routerLinkActive="active">
+                      <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">View Register Page</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<br><br><br><br><br><br><br><br><br><br>
+  <form [formGroup]="tutorialForm" (ngSubmit)="tutorialForm.valid && onSubmit(tutorialForm)">
+    <div class="row">
+      <div class="col-sm-8">
+
+          <input type="text" class="form-control"  formControlName="topic" name="topic" placeholder="Programming Topic"
+          required  [ngClass]="{'invalid-textbox' :tutorialForm.submitted && !topic.valid }">
+          <div *ngIf="tutorialForm.submitted && !topic.valid">
+            <label class="validation-message">This field is required.</label>
+          </div>
+          <br>
+      </div>
+      <!-- <div class="col-sm-4">
+        <input type="file" (change)="onFileSelected($event)">
+      </div> -->
+    </div>  
+    
+      <!-- <input type="text" class="form-control" #email="ngModel" [(ngModel)]="_userService.selectedUser.email" name="email" placeholder="Email"
+      required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :tutorialForm.submitted && !email.valid }">
+      <div *ngIf="tutorialForm.submitted && email.errors">
+        <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+        <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+      </div>
+      <br>
+      <input type="password" class="form-control" #password="ngModel" [(ngModel)]="_userService.selectedUser.password" name="password" placeholder="Password"
+      minlength="4" required [ngClass]="{'invalid-textbox' :tutorialForm.submitted && !password.valid }">
+      <div *ngIf="tutorialForm.submitted && password.errors">
+        <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+        <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+      </div>
+      <br> -->
+      
+  
+      <input  class="btn btn-danger btn-block btn-round" type="submit" value="add Tutorial">
+    </form>
+    
+  
